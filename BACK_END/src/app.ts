@@ -18,7 +18,10 @@ import fs from "fs";
  * This file initializes middleware, security settings, and global route handlers.
  */
 dotenv.config();
+
 const app = express();
+
+app.set('trust proxy', 1);
 
 /**
  * CORS(cross origin resource sharing) 
