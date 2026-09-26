@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3000/api',
-  imageBaseUrl: '/images',
+  apiUrl: 'https://e-commerce-backend-2pn0.onrender.com/api',
+  imageBaseUrl: 'https://e-commerce-backend-2pn0.onrender.com/Images',
 };
