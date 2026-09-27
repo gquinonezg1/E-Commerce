@@ -16,7 +16,7 @@ function setCookieAndRespond(res: Response, token: string, user: any): void {
     res.cookie(COOKIE_NAME, token, {
         httpOnly: true,                                          // JS cannot read this cookie
         secure: process.env.NODE_ENV === 'production',          // HTTPS only in production
-        sameSite: 'lax',                                        // CSRF protection
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',                                      // CSRF protection
         maxAge: COOKIE_MAX_AGE,
     });
     res.json({ message: 'Login successful', user });
