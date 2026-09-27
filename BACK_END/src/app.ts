@@ -108,8 +108,8 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
     if (err.message === 'Only image files are allowed (JPEG, PNG, WebP, GIF, https)') {
         return res.status(400).json({ error: err.message });
     }
-    console.error("Error");
-    const status = err.status || 500;
+console.error(err);
+const status = err.status || 500;
     const message = process.env.NODE_ENV === 'production'
         ? 'An unexpected error occurred'
         : err.message;
