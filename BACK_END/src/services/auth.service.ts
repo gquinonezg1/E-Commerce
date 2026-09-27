@@ -67,6 +67,11 @@ export const AuthService = {
         const userRepo = await AppDataSource.getRepository(User);
         const normalisedEmail = email.toLowerCase().trim();
         const user = await userRepo.findOne({ where: { email: normalisedEmail } });
+        console.log("LOGIN DEBUG:", {
+    email: normalisedEmail,
+    userFound: !!user,
+    hasPasswordHash: !!user?.passwordHash,
+});
         const isMatch = await bcrypt.compare(password, user?.passwordHash!);
 
         if (!user || !isMatch) {
